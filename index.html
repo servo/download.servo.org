@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Servo Developer Preview Downloads</title>
+    <link rel='stylesheet' href='css/bootstrap.css'/>
+    <link rel='stylesheet' href='css/style.css'/>
+</head>
+
+<body>
+<div class='container'>
+    <div class='row'>
+        <div class='col-sm-offset-2 col-sm-8'>
+            <h1 id='page-title' class='page-header'> Servo Developer Preview Downloads</h1>
+        </div>
+        <div class='col-sm-offset-2 col-sm-8'>
+            <h3 class='description'><a href="https://servo.org/"><b>Servo</b></a> is a modern, high-performance browser
+                engine being developed for application and embedded use.
+            </h3>
+        </div>
+    </div>
+    <br>
+    <div class='row'>
+        <div class='col-sm-offset-2 col-sm-8 col-lg-4'>
+
+            <p class='info'>These pre-built nightly snapshots allow developers
+            to try Servo and <a href="https://github.com/servo/servo/issues/new">report
+            issues</a> without <a href="https://github.com/servo/servo/blob/master/docs/HACKING_QUICKSTART.md">
+            building Servo locally</a>.
+            </p>
+        </div>
+        <div class='col-sm-8 col-lg-4 col-sm-push-2 col-lg-push-0'>
+<!-- Coming soon!
+            <a class='btn btn-primary btn-large' role='button'
+               href='nightly/windows/'>Windows Builds</a>
+-->
+            <a class='btn btn-primary btn-large' role='button'
+               href='nightly/mac/servo-latest.dmg'>MacOS Build</a><br>
+            <a class='btn btn-primary btn-large' role='button'
+               href='nightly/linux/servo-latest.tar.gz'>Linux Build</a><br>
+<!-- Coming soon!
+            <a class='btn btn-primary btn-large' role='button'
+               href='nightly/android/'>Android Builds</a><br>
+-->
+            <br><p> Windows and Android builds coming soon!</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class='col-sm-offset-2 col-sm-8 col-lg-4'>
+            <h2 class='header'>MacOS Instructions</h2>
+                <ul>
+                    <li>Click the "MacOS Build" button above to download the latest build</li>
+                    <li>Open the downloaded `servo-latest.dmg` file</li>
+                    <li>Drag Servo.app to the Applications folder</li>
+                    <li>Double-click on Servo.app to run Servo</li>
+                </ul>
+        <p>Note: Servo.app is not currently codesigned, so
+Mac users may have a popup saying "Servo can't be opened because it is from an
+unidentified developer." If the popup lacks a "proceed anyway" option, close
+it then right click Servo.app and click open. This time the popup will have an
+option to proceed opening the application.
+        </div>
+        <div class='col-sm-8 col-lg-4 col-sm-push-2 col-lg-push-0'>
+            <h2 class='header'>Linux Instructions</h2>
+                <ul>
+                    <li>Click the "Linux Build" button above</li>
+                    <li>Download the .TAR.GZ file</li>
+                    <li>Expand the file (`tar zxf servo-latest.tar.gz`)</li>
+                    <li>`cd servo`</li>
+                    <li>Execute the `./runservo.sh` script to run Servo</li>
+                </ul>
+            <div align="center">
+                <a href="https://servo.org/"><img src="doge-tiny.png"
+                alt="Servo's Doge Logo"></a>
+            </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-sm-offset-2 col-sm-8'>
+
+            <footer class='text-center'>
+                <div class='col-md-3'>
+                    <a href="https://servo.org/">Servo Home Page</a>
+                </div>
+                <div class='col-md-3'>
+                    <a href="https://www.github.com/servo">Contribute</a>
+                </div>
+                <div class='col-md-3'>
+                    <a href='https://github.com/servo/servo/wiki/Roadmap'>Follow Servo's Roadmap</a>
+                </div>
+                <div class='col-md-3'>
+                    <a href="http://blog.servo.org/">Read the Servo blog</a>
+                </div>
+                <div class='col-md-3'>
+                    <p class='text-muted'>#servo on irc.mozilla.org</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+</body>
+</html>
