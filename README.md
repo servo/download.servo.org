@@ -28,3 +28,18 @@ value for the integrity attribute on the HTML tag including that resource.
 
 You can check if this worked by trying to load the page in a browser and
 looking for console messages. (Note that Servo doesn't support this quite yet!)
+
+## Local testing
+
+We use the [W3C's HTML5 validator](https://github.com/validator/validator),
+via the
+[`html5validator` Python package](https://github.com/svenkreiss/html5validator)
+.
+
+To run this locally, run:
+```console
+$ virtualenv2 venv
+$ source venv/bin/activate
+(venv2) $ pip install -r dev-requirements.txt
+(venv2) $ html5validator
+```
