@@ -5,7 +5,8 @@ Style and layout based on [servo.org](https://github.com/servo/servo.org) and
 used under MPL, bootstrap.css (c) Twitter and used under MIT license.
 
 Current way to deploy changes to the download landing page is to ask an
-administrator to manually upload them.
+administrator to manually upload them. Anyone with access to the
+`servo-builds` s3 bucket can overwrite the changed website files in it.
 
 Assistance in improving the download page's appearance, accessibility, and
 instructions is greatly appreciated!
