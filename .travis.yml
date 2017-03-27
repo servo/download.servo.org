@@ -20,5 +20,17 @@ install:
 script:
   - html5validator
 
+deploy:
+  provider: s3
+  access_key_id: AKIAJS3X7XBCRPG6OXHQ
+  secret_access_key:
+    secure: "arq0I7l8NtbaPpPnxU1j2k4L42k1uKXHcJ7IEfBA0AfM9YdT2nVo3spmcU0AJx2dJcVIRCkG1AiIYbdGCenQ5KprQjAGC8wVP1pu6FpGCAeJltmitdviEp/mmum6ljSJg2ARVnZqWu6Vq4UTee/FrnlBDr7aKrOFDRD6SedDbLATF6Mji2qZPphvps02qu6ts2OHoEZtVhFOJ413njOwN8iBs96lh3adYHBNfR7zElnoPD29W/I8nrtO9gB3P/bMdoJRE7oJNKSqZT08xwXz36hHOsQQ1on2J4Jf5QEG0XrzJ5wiCukADoz2oNsJbysptsVkZ0o48hDi94t2ow5JlDpqVWVmjK3s1GW/cUDvVYUceY7Bk1IGd0hdMGCLyu/oMx463RXgZWoH00RI8mbedjJU5K9QYBbLS+XirJ7sxNBlRf3RF51hUwWWCVTK6TDtVSeCepbbXMeIP2xc4/DxMIcPgEFQ+z6Mjg2DBwVMl6l3wKkCYa/eX5gZ/4hvIVe+nnzjpSp1axqxjrwdk1jAdgpYlAnwUV2PHKrKezOTdzNJlKqu9wiRGMgNI9nF3neIsGi/f1Y1cDbyPaW7amcEF7vHjB05QY5oSUTasuilZH9+u45svv20O+Kqgt7YzvOA4VQ+72eXH5QOmwH+w6T3U9jeQNBvihkNuQ+pEx//5Q0="
+  bucket: servo-builds
+  acl: public_read
+  region: us-west-2
+  on:
+    branch: master
+  condition: $TRAVIS_PULL_REQUEST = "false"
+
 notifications:
   webhooks: http://build.servo.org:54856/travis
