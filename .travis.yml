@@ -5,10 +5,6 @@ language: python
 python:
   - "2.7"
 
-branches:
-  only:
-    - master
-
 # Install Java 8 as required by vnu.jar
 before_install:
   - sudo apt-get update
