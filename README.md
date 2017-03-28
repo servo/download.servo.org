@@ -4,9 +4,9 @@
 Style and layout based on [servo.org](https://github.com/servo/servo.org) and
 used under MPL, bootstrap.css (c) Twitter and used under MIT license.
 
-Current way to deploy changes to the download landing page is to ask an
-administrator to manually upload them. Anyone with access to the
-`servo-builds` s3 bucket can overwrite the changed website files in it.
+Homu is set up to land changes on this repository, and all successful Travis
+builds of the master branch automatically deploy the updated site to the
+servo-builds bucket on s3.
 
 Assistance in improving the download page's appearance, accessibility, and
 instructions is greatly appreciated!
