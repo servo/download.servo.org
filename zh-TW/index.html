@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>下載 Servo 開發者預覽版本</title>
+    <link rel="stylesheet" href="css/bootstrap.css" integrity="sha512-++bHK0UNrNHW3LVNLzgTm2G7uOH6Kd+Ved0sskOL0+TY7pr5AcWQgR19kdjAhyyiQRDjFwXubDGqTvjnS09HNA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css" integrity="sha512-FQmucuHzxei8VvCDQqa5fJIzNaRw/q1pC3UTgQ94WNNws9Tt0A0egUWHxX7K5QNRZJJS53L9tTrLz0fDEqFdjA=="
+        crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8">
+                <h1 id="page-title" class="page-header"> 下載 Servo 開發者預覽版本</h1>
+            </div>
+            <div class="col-sm-offset-2 col-sm-8">
+                <h3 class="description">
+                    <a href="https://servo.org/">
+                        <b>Servo</b>
+                    </a>
+                    是一款專為應用軟體和嵌入式應用而設計的現代化的高效能、平行化瀏覽器引擎
+                </h3>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8 col-lg-4">
+
+                <p class="info">
+                    這些預先版本，讓開發者可以不用在
+                    <a href="https://github.com/servo/servo/blob/master/docs/HACKING_QUICKSTART.md">
+                        本地端編譯
+                    </a>
+                    的情況下試用 Servo 以及
+                    <a href="https://github.com/servo/servo/issues/new">
+                        回報 issues
+                    </a>
+
+                </p>
+
+                <p class="info">
+                    <b>目前請不要使用 Servo 來登入銀行帳號！
+                    </b> 目前我們釋出第一版的開發者預覽版本，我們將進行正式的安全性稽核，
+                         並且透過現存的函式庫還有 Rust 語言來增進安全性 -- 將會有更多資訊釋出！
+                </p>
+            </div>
+            <div class="col-sm-8 col-lg-4 col-sm-push-2 col-lg-push-0">
+                <a class="btn btn-primary btn-large" role="button" href="nightly/windows-msvc/servo-latest.msi">Windows 安裝版</a>
+                <a class="btn btn-primary btn-large" role="button" href="nightly/windows-msvc/servo-latest.zip">Windows ZIP 版本</a>
+                <br>
+                <a class="btn btn-primary btn-large" role="button" href="nightly/mac/servo-latest.dmg">macOS 版本</a>
+                <br>
+                <a class="btn btn-primary btn-large" role="button" href="nightly/linux/servo-latest.tar.gz">Linux (64位元) 版本</a>
+                <br>
+                <!-- Coming soon!
+                <a class="btn btn-primary btn-large" role="button"
+                href="nightly/android/">Android Builds</a><br>
+                -->
+                <br>
+                <p>Android 版本即將釋出！</p>
+                <br>
+                <p>參閱
+                    <a href="https://github.com/servo/servo/issues/12130">Android</a>
+                    追蹤進度更新和 Bugs
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8 col-lg-4">
+                <h2 class="header">macOS 安裝設定</h2>
+                <ul>
+                    <li>點擊上方「 macOS Build 」來下載最新預覽版</li>
+                    <li>打開下載的 `servo-latest.dmg` 檔案</li>
+                    <li>拖曳 Servo.app 到應用程式資料夾</li>
+                    <li>雙擊 Servo.app 來執行 Servo</li>
+                </ul>
+                <p>注意： Servo.app 目前沒有簽章，所以 Mac 的用戶會看到應用程式跳出「無法打開『Servo.app』，因為它來自未識別的開發者。」。 並出現「您的安全性偏好設定僅允許安裝來自 App Store 和已識別開發者的
+                    App。」。 請到「系統偏好設定」的「安全性與隱私」來解鎖，並執行程式。
+                </p>
+            </div>
+            <div class="col-sm-8 col-lg-4 col-sm-push-2 col-lg-push-0">
+                <h2 class="header">Linux 安裝設定</h2>
+                <ul>
+                    <li>點擊 「 Linux Build 」 按鈕</li>
+                    <li>下載 .TAR.GZ 壓縮檔案</li>
+                    <li>解壓縮(`tar zxf servo-latest.tar.gz`)</li>
+                    <li>`cd servo`</li>
+                    <li>`./servo` 來執行 Servo</li>
+                </ul>
+                <div style="text-align:center">
+                    <a href="https://servo.org/">
+                        <img src="doge-tiny.png" alt="Servo's Doge Logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8">
+                <div class='row' id='languages'>
+                    <div class='col-sm-12'>
+                        <p>其他語言的頁面：
+                            <a href="/index.html">English</a>
+                        </p>
+                    </div>
+                </div>
+
+                <footer class="text-center">
+                    <div class="col-md-3">
+                        <a href="https://servo.org/zh-TW/index.html">Servo 主頁</a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://www.github.com/servo">貢獻</a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://github.com/servo/servo/wiki/Roadmap">Servo 的發展藍圖</a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="http://blog.servo.org/">閱讀 Servo 部落格</a>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="text-muted">#servo on irc.mozilla.org</p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
