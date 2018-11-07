@@ -27,6 +27,3 @@ deploy:
   on:
     branch: master
   condition: $TRAVIS_PULL_REQUEST = "false"
-
-notifications:
-  webhooks: http://build.servo.org:54856/travis
