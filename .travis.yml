@@ -13,8 +13,8 @@ before_install:
 install:
   - pip install -r dev-requirements.txt
 
-script:
-  - html5validator
+#script:
+#  - html5validator
 
 deploy:
   provider: s3
