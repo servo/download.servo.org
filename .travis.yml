@@ -14,7 +14,8 @@ install:
   - pip install -r dev-requirements.txt
 
 script:
-  - html5validator
+  - echo "no validation performed"
+  #- html5validator
 
 deploy:
   provider: s3
