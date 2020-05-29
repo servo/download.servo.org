@@ -43,19 +43,19 @@ both existing libraries and Rust -- more information coming soon!
         </div>
         <div class="col-sm-8 col-lg-4 col-sm-push-2 col-lg-push-0">
             <span class="col-sm-8 col-sm-push-0">
-                <a class="btn btn-primary btn-large" role="button"
+                <a class="btn btn-primary btn-large" id="button-windows-exe" role="button"
                    href="nightly/windows-msvc/servo-latest.exe">Windows Build Installer (64-bit)</a><br>
 
-                <a class="btn btn-primary btn-large" role="button"
+                <a class="btn btn-primary btn-large" id="button-windows-zip" role="button"
                    href="nightly/windows-msvc/servo-latest.zip">Windows Build (64-bit)</a><br>
 
-                <a class="btn btn-primary btn-large" role="button"
+                <a class="btn btn-primary btn-large" id="button-uwp" role="button"
                    href="nightly/uwp/servo-latest.zip">UWP Build</a><br>
 
-                <a class="btn btn-primary btn-large" role="button"
+                <a class="btn btn-primary btn-large" id="button-macos" role="button"
                    href="nightly/mac/servo-latest.dmg">macOS Build</a><br>
 
-                <a class="btn btn-primary btn-large" role="button"
+                <a class="btn btn-primary btn-large" id="button-linux" role="button"
                    href="nightly/linux/servo-latest.tar.gz">Linux Build (64-bit)</a><br>
             </span>
             <span class="col-sm-push">
@@ -136,5 +136,58 @@ both existing libraries and Rust -- more information coming soon!
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    window.onload = load_build_dates;
+
+    function load_build_dates() {
+        var builds = [
+            ["button-windows-exe", "nightly/windows-msvc/servo-latest.exe"],
+            ["button-windows-zip", "nightly/windows-msvc/servo-latest.zip"],
+            ["button-uwp", "nightly/uwp/servo-latest.zip"],
+            ["button-macos", "nightly/mac/servo-latest.dmg"],
+            ["button-linux", "nightly/linux/servo-latest.tar.gz"]
+        ];
+
+        builds.forEach(function (item, index) {
+            load_build_date(item[0], item[1]);
+        });
+    }
+
+    function load_build_date(id, prefix) {
+        var url = "https://servo-builds.s3.amazonaws.com/?list-type=2&prefix=" + prefix;
+        get_request(url, function(text) {
+            var xml = parse_xml(text);
+            var contents_tag = xml.getElementsByTagName("Contents")[0];
+            var last_modified_tag = contents_tag.getElementsByTagName("LastModified")[0];
+            var last_modified = last_modified_tag.textContent.split("T")[0];
+            document.getElementById(id).innerText += " " + last_modified;
+        });
+    }
+
+    function get_request(url, callback) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == XMLHttpRequest.DONE && xhttp.status == 200) {
+                callback(xhttp.responseText);
+            }
+        };
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
+
+    function parse_xml(text) {
+        if (window.DOMParser) {
+            var parser = new DOMParser();
+            var xml_doc = parser.parseFromString(text, "text/xml");
+            return xml_doc;
+        } else {
+            // Internet Explorer
+            var xml_doc = new ActiveXObject("Microsoft.XMLDOM");
+            xml_doc.async = false;
+            xml_doc.loadXML(text);
+            return xml_doc;
+        }
+    }
+</script>
 </body>
 </html>
