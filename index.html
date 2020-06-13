@@ -8,7 +8,7 @@
           integrity="sha512-++bHK0UNrNHW3LVNLzgTm2G7uOH6Kd+Ved0sskOL0+TY7pr5AcWQgR19kdjAhyyiQRDjFwXubDGqTvjnS09HNA=="
           crossorigin="anonymous"/>
     <link rel="stylesheet" href="/css/style.css"
-          integrity="sha512-FQmucuHzxei8VvCDQqa5fJIzNaRw/q1pC3UTgQ94WNNws9Tt0A0egUWHxX7K5QNRZJJS53L9tTrLz0fDEqFdjA=="
+          integrity="sha512-IOgMYAL0bb8kOWKoWbQ/yKxMQSthth9TfPFEyhXoLClXZMrOKTZgXn4vp0zfFblZ1vtMmWe4gQuffSuu2b4Uow=="
           crossorigin="anonymous"/>
 </head>
 
@@ -69,6 +69,40 @@ both existing libraries and Rust -- more information coming soon!
 
                 <a class="btn" href="nightly/linux/servo-latest.tar.gz.sha256">sha256</a><br>
             </span>
+        </div>
+    </div>
+    <div class="row" id="build-info-row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <table class="table" id="build-info">
+                <thead>
+                    <tr>
+                        <th scope="col">Platform</th>
+                        <th scope="col">Build date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Windows Installer</th>
+                        <td id="date-windows-exe"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Windows Zip</th>
+                        <td id="date-windows-zip"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">UWP</th>
+                        <td id="date-uwp"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">macOS</th>
+                        <td id="date-macos"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Linux</th>
+                        <td id="date-linux"></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     <div class="row">
@@ -141,11 +175,11 @@ both existing libraries and Rust -- more information coming soon!
 
     function load_build_dates() {
         var builds = [
-            ["button-windows-exe", "nightly/windows-msvc/servo-latest.exe"],
-            ["button-windows-zip", "nightly/windows-msvc/servo-latest.zip"],
-            ["button-uwp", "nightly/uwp/servo-latest.zip"],
-            ["button-macos", "nightly/mac/servo-latest.dmg"],
-            ["button-linux", "nightly/linux/servo-latest.tar.gz"]
+            ["date-windows-exe", "nightly/windows-msvc/servo-latest.exe"],
+            ["date-windows-zip", "nightly/windows-msvc/servo-latest.zip"],
+            ["date-uwp", "nightly/uwp/servo-latest.zip"],
+            ["date-macos", "nightly/mac/servo-latest.dmg"],
+            ["date-linux", "nightly/linux/servo-latest.tar.gz"]
         ];
 
         builds.forEach(function (item, index) {
@@ -160,7 +194,7 @@ both existing libraries and Rust -- more information coming soon!
             var contents_tag = xml.getElementsByTagName("Contents")[0];
             var last_modified_tag = contents_tag.getElementsByTagName("LastModified")[0];
             var last_modified = last_modified_tag.textContent.split("T")[0];
-            document.getElementById(id).innerText += " " + last_modified;
+            document.getElementById(id).innerText = last_modified;
         });
     }
 
