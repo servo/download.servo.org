@@ -58,48 +58,53 @@ both existing libraries and Rust &ndash; more information coming soon!
                 <a class="btn btn-primary btn-large" id="button-linux" role="button"
                    href="nightly/linux/servo-latest.tar.gz">Linux Build (64-bit)</a><br>
             </span>
-            <span class="col-sm-push">
-                <a class="btn" href="nightly/windows-msvc/servo-latest.exe.sha256">sha256</a><br>
-
-                <a class="btn" href="nightly/windows-msvc/servo-latest.zip.sha256">sha256</a><br>
-
-                <a class="btn" href="nightly/uwp/servo-latest.zip.sha256">sha256</a><br>
-
-                <a class="btn" href="nightly/mac/servo-latest.dmg.sha256">sha256</a><br>
-
-                <a class="btn" href="nightly/linux/servo-latest.tar.gz.sha256">sha256</a><br>
-            </span>
         </div>
     </div>
     <div class="row" id="build-info-row">
-        <div class="col-sm-4 col-sm-offset-4">
+        <div class="col-sm-6 col-sm-offset-3">
             <table class="table" id="build-info">
                 <thead>
                     <tr>
                         <th scope="col">Platform</th>
                         <th scope="col">Build date</th>
+                        <th scope="col">SHA-256</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th scope="row">Windows Installer</th>
                         <td id="date-windows-exe">?</td>
+                        <td>
+                            <a id="sha256-windows-exe" href="nightly/windows-msvc/servo-latest.exe.sha256">sha256</a>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">Windows Zip</th>
                         <td id="date-windows-zip">?</td>
+                        <td>
+                            <a id="sha256-windows-zip" href="nightly/windows-msvc/servo-latest.zip.sha256">sha256</a>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">UWP</th>
                         <td id="date-uwp">?</td>
+                        <td>
+                            <a id="sha256-uwp" href="nightly/uwp/servo-latest.zip.sha256">sha256</a>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">macOS</th>
                         <td id="date-macos">?</td>
+                        <td>
+                            <a id="sha256-macos" href="nightly/mac/servo-latest.dmg.sha256">sha256</a>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">Linux</th>
                         <td id="date-linux">?</td>
+                        <td>
+                            <a id="sha256-linux" href="nightly/linux/servo-latest.tar.gz.sha256">sha256</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -171,19 +176,20 @@ both existing libraries and Rust &ndash; more information coming soon!
     </div>
 </div>
 <script type="text/javascript">
-    window.onload = load_build_dates;
+    window.onload = load_build_info;
 
-    function load_build_dates() {
+    function load_build_info() {
         var builds = [
-            ["date-windows-exe", "nightly/windows-msvc/servo-latest.exe"],
-            ["date-windows-zip", "nightly/windows-msvc/servo-latest.zip"],
-            ["date-uwp", "nightly/uwp/servo-latest.zip"],
-            ["date-macos", "nightly/mac/servo-latest.dmg"],
-            ["date-linux", "nightly/linux/servo-latest.tar.gz"]
+            ["windows-exe", "nightly/windows-msvc/servo-latest.exe"],
+            ["windows-zip", "nightly/windows-msvc/servo-latest.zip"],
+            ["uwp", "nightly/uwp/servo-latest.zip"],
+            ["macos", "nightly/mac/servo-latest.dmg"],
+            ["linux", "nightly/linux/servo-latest.tar.gz"]
         ];
 
         builds.forEach(function (item, index) {
-            load_build_date(item[0], item[1]);
+            load_build_date("date-" + item[0], item[1]);
+            load_sha256("sha256-" + item[0], "https://download.servo.org/" + item[1] + ".sha256");
         });
     }
 
@@ -195,6 +201,12 @@ both existing libraries and Rust &ndash; more information coming soon!
             var last_modified_tag = contents_tag.getElementsByTagName("LastModified")[0];
             var last_modified = last_modified_tag.textContent.split("T")[0];
             document.getElementById(id).innerText = last_modified;
+        });
+    }
+
+    function load_sha256(id, url) {
+        get_request(url, function (sha256) {
+            document.getElementById(id).innerText = sha256.slice(0, 16) + "...";
         });
     }
 
