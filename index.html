@@ -202,14 +202,23 @@
             var xml = parse_xml(text);
             var contents_tag = xml.getElementsByTagName("Contents")[0];
             var last_modified_tag = contents_tag.getElementsByTagName("LastModified")[0];
-            var last_modified = last_modified_tag.textContent.split("T")[0];
-            document.getElementById(id).innerText = last_modified;
+
+            var last_modified = last_modified_tag.textContent;
+            var last_modified_date = last_modified.split("T")[0];
+
+            var el = document.getElementById(id);
+            el.innerText = last_modified_date;
+            el.title = last_modified;
         });
     }
 
     function load_sha256(id, url) {
         get_request(url, function (sha256) {
-            document.getElementById(id).innerText = sha256.slice(0, 16) + "...";
+            var sha256_short = sha256.slice(0, 16) + "...";
+
+            var el = document.getElementById(id);
+            el.innerText = sha256_short;
+            el.title = sha256;
         });
     }
 
