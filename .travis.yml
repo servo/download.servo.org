@@ -22,9 +22,9 @@ deploy:
   access_key_id: AKIAS3HIP2PXTZ4N3KI4
   secret_access_key:
     secure: "pjTIoxru93QwEOMgiSbB6ROfWLjfY5BDN83mTl46yTR+256b9M9p19cwL6UXDmC54wJSjSLmg3xKhhccfZHIjYYo2QqIyNYab682CEO3MI2mp5uen/wOYR1W5vEgWptDsudQC9bi3IH0w1boZX6a8vI2TEnqt9MMPOkm16szgUgcClCKgc5+MVZlYma+scUMUMs2aBJldz/x99bgotBcIyrNudgxB+G6MdiGRzga8GBDw6/S+3YLwgLRQTFzDI3V2fU5+BEv2TrpKvg/xyMQbEb6OsGc03c0yeh5qXuPc6nQjuP+YMaxvpBQrWYY5c1wcWhlkQ5/WCUwuelpkqOdO4E4hDzLmpiu15esuIYhty/zyPAhyK/oHpwVgvShWTUXTyAEAFtDnzThphlQ+AT+cwkXhi30THflPfDvgUjMSMsCjQRATRjv19R88X+7mb1P7Nj9EmA75MUf12cP1X37ybDJmjVVG0MWswsxVuZY4jZHEr/izIBzA/h7s8Si2dtuI6NMGhMevnUcwYLG6CRtdyc6IVoxIwEN3WPSC9hQ48czP5XcQMCSO2o90LU3bafv6garaZSk4Q9pT67/08k9EC28hQIF/oU7Cl9KZi3wiepmQKZ5Tv/IojHUGXw4N+Zm+f3Fl+CVe/QZ2OqJTv064ZSYzr+owGpCwGc3SFq0Y1c="
-  bucket: servo-builds2
+  bucket: servo-builds-2
   acl: public_read
-  region: us-east-2
+  region: us-west-2
   on:
     branch: master
   condition: $TRAVIS_PULL_REQUEST = "false"
