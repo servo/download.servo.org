@@ -188,7 +188,7 @@
     }
 
     function load_build_date(id, prefix) {
-        var url = "https://servo-builds.s3.amazonaws.com/?list-type=2&prefix=" + prefix;
+        var url = "/?list-type=2&prefix=" + prefix;
         get_request(url, function (text) {
             var xml = parse_xml(text);
             var contents_tag = xml.getElementsByTagName("Contents")[0];
