@@ -1,21 +1,4 @@
 os: linux
-dist: trusty
-
-language: python
-python:
-  - "2.7"
-
-# Install Java 8 as required by vnu.jar
-before_install:
-  - sudo apt-get update
-  - sudo apt-get install openjdk-8-jre
-
-install:
-  - pip install -r dev-requirements.txt
-
-script:
-  - echo "no validation performed"
-  #- html5validator
 
 deploy:
   provider: s3
