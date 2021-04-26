@@ -2,14 +2,25 @@ name: Deploy
 
 on:
   push:
-    branches: ["master"]
+    branches: ["master", "auto"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
+  build_result:
+    name: homu build finished
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mark the job as successful
+        run: exit 0
+        if: success()
+      - name: Mark the job as unsuccessful
+        run: exit 1
+        if: "!success()"
   deploy:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
